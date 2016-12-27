@@ -34,7 +34,7 @@ extension Date {
       let day1 = dateComponents1.day, let day2 = dateComponents2.day else {
       return false
     }
-    return year1 == year1 && month1 == month2 && day1 == day2
+    return year1 == year2 && month1 == month2 && day1 == day2
   }
   
   func isSameMonthOfYear(to date: Date) -> Bool {
@@ -45,7 +45,7 @@ extension Date {
       let month1 = dateComponents1.month, let month2 = dateComponents2.month else {
         return false
     }
-    return year1 == year1 && month1 == month2
+    return year1 == year2 && month1 == month2
   }
 
   var shortDayOfMonth: String {
