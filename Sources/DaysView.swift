@@ -235,7 +235,7 @@ class DayView: UIView {
 
 class HighlightView: UIView {
   
-  var highlightColor = UIColor() {
+  var highlightColor = UIColor.clear {
     didSet {
       setNeedsDisplay()
     }
