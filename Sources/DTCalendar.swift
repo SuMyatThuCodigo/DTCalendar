@@ -76,11 +76,11 @@ public extension DTCalendarTheme {
 }
 
 public protocol DTCalendarDataSource {
-  func badge(with date: Date, on calendar: DTCalendar) -> DTBadge?
+  func calendar(_ calendar: DTCalendar, badgeForDate date: Date) -> DTBadge?
 }
 
 public protocol DTCalendarDelegate {
-  func didSelectedDate(_ date: Date, on calendar: DTCalendar)
+  func calendar(_ calendar: DTCalendar, didSelectedDate date: Date, isDifferentMonth: Bool)
 }
 
 public class DTCalendar: UIView {
@@ -99,25 +99,24 @@ public class DTCalendar: UIView {
   public static var isMonthControlsHidden = false
   public static var isDayControlsHidden = false
   
-  public var dataSource: DTCalendarDataSource? {
+  public var dataSource: DTCalendarDataSource?
+  public var delegate: DTCalendarDelegate? {
     didSet {
-      daysView.reloadDatas()
+      delegate?.calendar(self, didSelectedDate: selectedDate, isDifferentMonth: true)
     }
   }
-  public var delegate: DTCalendarDelegate?
   
   fileprivate var selectedDate = Date() {
     didSet {
-      if !oldValue.isSameDayOfYear(to: selectedDate) {
-        delegate?.didSelectedDate(selectedDate, on: self)
-      }
       if !oldValue.isSameMonthOfYear(to: selectedDate) {
         controlsView.reloadMonthButtonTitle()
         daysView.reloadDays()
-        daysView.reloadDatas()
       } else if !oldValue.isSameDayOfYear(to: selectedDate) {
-        daysView.reloadData(with: oldValue)
-        daysView.reloadData(with: selectedDate)
+        daysView.reloadStyle(with: oldValue)
+        daysView.reloadStyle(with: selectedDate)
+      }
+      if !oldValue.isSameDayOfYear(to: selectedDate) {
+        delegate?.calendar(self, didSelectedDate: selectedDate, isDifferentMonth: !oldValue.isSameMonthOfYear(to: selectedDate))
       }
     }
   }
@@ -144,7 +143,6 @@ public class DTCalendar: UIView {
     controlsView.reloadMonthButtonTitle()
     daysView.reloadDays()
 
-    delegate?.didSelectedDate(selectedDate, on: self)
   }
   
   // MARK: - Actions
@@ -169,12 +167,16 @@ public class DTCalendar: UIView {
     selectedDate = Date()
   }
   
-  public func reloadDatas() {
-    daysView.reloadDatas()
+  public func goDate(_ date: Date) {
+    selectedDate = date
   }
   
-  public func reloadData(with date: Date) {
-    daysView.reloadData(with: date)
+  public func reloadBadges() {
+    daysView.reloadBadges()
+  }
+  
+  public func reloadBadge(with date: Date) {
+    daysView.reloadBadge(with: date)
   }
   
   // MARK: - Private
@@ -311,7 +313,7 @@ extension DTCalendar: DaysViewDataSource {
   }
   
   func badge(with date: Date) -> DTBadge? {
-    return dataSource?.badge(with: date, on: self)
+    return dataSource?.calendar(self, badgeForDate: date)
   }
   
 }

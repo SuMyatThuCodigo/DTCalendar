@@ -109,7 +109,7 @@ class ViewController: UIViewController {
 
 extension ViewController: DTCalendarDataSource {
   
-  func badge(with date: Date, on calendar: DTCalendar) -> DTBadge? {
+  func calendar(_ calendar: DTCalendar, badgeForDate date: Date) -> DTBadge? {
     let dateComponents = Calendar.current.dateComponents([.weekday], from: date)
     if let weekday = dateComponents.weekday {
       if weekday == 2 || weekday == 4 || weekday == 6 {
@@ -123,8 +123,11 @@ extension ViewController: DTCalendarDataSource {
 
 extension ViewController: DTCalendarDelegate {
   
-  func didSelectedDate(_ date: Date, on calendar: DTCalendar) {    
+  func calendar(_ calendar: DTCalendar, didSelectedDate date: Date, isDifferentMonth: Bool) {
     label.text = formatter.string(from: date)
+    if isDifferentMonth {
+      calendar.reloadBadges()
+    }
   }
   
 }
@@ -145,8 +148,7 @@ public func goNextMonth()
 public func goYesterday()
 public func goTomorrow()
 public func goToday()
-public func reloadDatas()
-public func reloadData(with date: Date)
+public func goDate(_ date: Date)
 ```
 
 #### Highlight
@@ -221,7 +223,7 @@ DTCalendar.theme = MyTheme()
 ```swift
 class EmojiBadge: DTBadge {
   
-  fileprivate let label = UILabel()
+  let label = UILabel()
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -230,8 +232,6 @@ class EmojiBadge: DTBadge {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    label.font = UIFont.systemFont(ofSize: 8)
-
     addSubview(label)
     
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -247,11 +247,11 @@ class EmojiBadge: DTBadge {
   override func didChangeStyle(_ style: Style) {
     switch style {
     case .normal:
-      label.text = "🐶"
+      label.font = UIFont.systemFont(ofSize: 8)
     case .today:
-      label.text = "🐱"
+      label.font = UIFont.systemFont(ofSize: 8)
     case .selected:
-      label.text = "🐔"
+      label.font = UIFont.systemFont(ofSize: 16)
     }
   }
 
@@ -259,14 +259,27 @@ class EmojiBadge: DTBadge {
 
 extension ViewController: DTCalendarDataSource {
   
-  func badge(with date: Date, on calendar: DTCalendar) -> DTBadge? {
+  func calendar(_ calendar: DTCalendar, badgeForDate date: Date) -> DTBadge? {
     let dateComponents = Calendar.current.dateComponents([.weekday], from: date)
     if let weekday = dateComponents.weekday {
       if weekday == 2 || weekday == 4 || weekday == 6 {
-        return EmojiBadge()
+        let badge = EmojiBadge()
+        badge.label.text = "⭐️"
+        return badge
       }
     }
     return nil
+  }
+  
+}
+
+extension ViewController: DTCalendarDelegate {
+  
+  func calendar(_ calendar: DTCalendar, didSelectedDate date: Date, isDifferentMonth: Bool) {
+    label.text = formatter.string(from: date)
+    if isDifferentMonth {
+      calendar.reloadBadges()
+    }
   }
   
 }

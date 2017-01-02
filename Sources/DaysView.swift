@@ -56,6 +56,7 @@ class DaysView: UIView {
       } else {
         let date = dataSource.date(with: day, and: numberOfOffsets)
         dayView = DayView(date: date)
+        dayView.style = style(with: date)
       }
       dayView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapDayView(recognizer:))))
       
@@ -107,23 +108,31 @@ class DaysView: UIView {
     }
   }
   
-  func reloadDatas() {
+  func reloadBadges() {
+    guard let dataSource = dataSource else {
+      return
+    }
+
     for dayView in dayViews {
       if let date = dayView.date {
-        reloadDayView(dayView, with: date)
+        dayView.badge = dataSource.badge(with: date)
+        dayView.style = style(with: date)
       }
     }
   }
   
-  func reloadData(with date: Date) {
-    for dayView in dayViews {
-      if let eachDate = dayView.date {
-        if eachDate.isSameDayOfYear(to: date) {
-          reloadDayView(dayView, with: date)
-          break
-        }
-      }
+  func reloadBadge(with date: Date) {
+    guard let dataSource = dataSource else {
+      return
     }
+
+    let view = dayView(with: date)
+    view?.badge = dataSource.badge(with: date)
+    view?.style = style(with: date)
+  }
+  
+  func reloadStyle(with date: Date) {
+    dayView(with: date)?.style = style(with: date)
   }
   
   func tapDayView(recognizer: UIGestureRecognizer) {
@@ -136,20 +145,27 @@ class DaysView: UIView {
   
   // MARK: - Private
   
-  fileprivate func reloadDayView(_ dayView: DayView, with date: Date) {
-    guard let dataSource = dataSource else {
-      return
+  fileprivate func dayView(with date: Date) -> DayView? {
+    for dayView in dayViews {
+      if let eachDate = dayView.date {
+        if eachDate.isSameDayOfYear(to: date) {
+          return dayView
+        }
+      }
     }
-    
-    dayView.badge = dataSource.badge(with: date)
-
-    if dataSource.isSelectedDate(date) {
-      dayView.style = .selected
-    } else if date.isSameDayOfYear(to: Date()) {
-      dayView.style = .today
-    } else {
-      dayView.style = .normal
+    return nil
+  }
+  
+  fileprivate func style(with date: Date) -> DTBadge.Style {
+    if date.isSameDayOfYear(to: Date()) {
+      return .today
     }
+    if let dataSource = dataSource {
+      if dataSource.isSelectedDate(date) {
+        return .selected
+      }
+    }
+    return .normal
   }
 
 }
