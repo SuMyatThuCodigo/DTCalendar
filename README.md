@@ -1,3 +1,10 @@
+# DTCalendar
+
+[![Swift](https://img.shields.io/badge/Swift-3.0-ff3f26.svg?style=flat)](https://swift.org/)
+[![Platform](https://img.shields.io/cocoapods/p/DTCalendar.svg?style=flat)](http://cocoadocs.org/docsets/DTCalendar)
+[![CocoaPods](http://img.shields.io/cocoapods/v/DTCalendar.svg)](https://cocoapods.org/pods/DTCalendar)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 ## Introduction
 
 Simple calendar control.
