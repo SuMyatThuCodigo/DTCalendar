@@ -53,7 +53,7 @@ class ControlsView: UIView {
     let previousMonthButton = UIButton()
     previousMonthButton.tintColor = DTCalendar.theme.controlsColor
     previousMonthButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-    previousMonthButton.setImage(imageWithName("left-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
+    previousMonthButton.setImage(DTCalendar.imageWithName("left-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
     previousMonthButton.addTarget(self, action: #selector(previousMonth), for: .touchUpInside)
     
     addSubview(previousMonthButton)
@@ -84,7 +84,7 @@ class ControlsView: UIView {
     let nextMonthButton = UIButton()
     nextMonthButton.tintColor = DTCalendar.theme.controlsColor
     nextMonthButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-    nextMonthButton.setImage(imageWithName("right-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
+    nextMonthButton.setImage(DTCalendar.imageWithName("right-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
     nextMonthButton.addTarget(self, action: #selector(nextMonth), for: .touchUpInside)
     
     addSubview(nextMonthButton)
@@ -102,7 +102,7 @@ class ControlsView: UIView {
     let yesterdayButton = UIButton()
     yesterdayButton.tintColor = DTCalendar.theme.controlsColor
     yesterdayButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-    yesterdayButton.setImage(imageWithName("left-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
+    yesterdayButton.setImage(DTCalendar.imageWithName("left-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
     yesterdayButton.addTarget(self, action: #selector(yesterday), for: .touchUpInside)
     
     addSubview(yesterdayButton)
@@ -136,7 +136,7 @@ class ControlsView: UIView {
     let tomorrowButton = UIButton()
     tomorrowButton.tintColor = DTCalendar.theme.controlsColor
     tomorrowButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
-    tomorrowButton.setImage(imageWithName("right-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
+    tomorrowButton.setImage(DTCalendar.imageWithName("right-arrow")?.withRenderingMode(.alwaysTemplate), for: .normal)
     tomorrowButton.addTarget(self, action: #selector(tomorrow), for: .touchUpInside)
     
     addSubview(tomorrowButton)
@@ -147,11 +147,6 @@ class ControlsView: UIView {
     let centerY = NSLayoutConstraint(item: tomorrowButton, attribute:.centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
     
     addConstraints([trailing, centerY])
-  }
-  
-  fileprivate func imageWithName(_ name: String) -> UIImage? {
-    let bundle = Bundle(for: ControlsView.self)
-    return UIImage(named: name, in: bundle, compatibleWith: nil)
   }
 
   fileprivate func buttonTitle(with text: String) -> NSAttributedString {

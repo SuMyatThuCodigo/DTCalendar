@@ -12,13 +12,8 @@
 		4016629A1E0E24D000ACEA6D /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401662991E0E24D000ACEA6D /* ControlsView.swift */; };
 		4016629C1E0E24E000ACEA6D /* DaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016629B1E0E24E000ACEA6D /* DaysView.swift */; };
 		4016629F1E0F9B8F00ACEA6D /* DTCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B4A07A1E0BC08E005051A0 /* DTCalendar.framework */; };
-		402F58CF1E10B97500791320 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 402F58C91E10B97500791320 /* left-arrow.png */; };
-		402F58D01E10B97500791320 /* left-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 402F58CA1E10B97500791320 /* left-arrow@2x.png */; };
-		402F58D11E10B97500791320 /* left-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 402F58CB1E10B97500791320 /* left-arrow@3x.png */; };
-		402F58D21E10B97500791320 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 402F58CC1E10B97500791320 /* right-arrow.png */; };
-		402F58D31E10B97500791320 /* right-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 402F58CD1E10B97500791320 /* right-arrow@2x.png */; };
-		402F58D41E10B97500791320 /* right-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 402F58CE1E10B97500791320 /* right-arrow@3x.png */; };
 		402F58D81E110AB300791320 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402F58D71E110AB300791320 /* DateExtension.swift */; };
+		40A6B27E1EF67B6000D10C3C /* DTCalendar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 40A6B27D1EF67B6000D10C3C /* DTCalendar.bundle */; };
 		40B4A0861E0BC0BA005051A0 /* DTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B4A0841E0BC0BA005051A0 /* DTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40B4A08F1E0BC15E005051A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4A08E1E0BC15E005051A0 /* AppDelegate.swift */; };
 		40B4A0911E0BC15E005051A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4A0901E0BC15E005051A0 /* ViewController.swift */; };
@@ -32,13 +27,8 @@
 		401662971E0E249D00ACEA6D /* WeekdaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdaysView.swift; sourceTree = "<group>"; };
 		401662991E0E24D000ACEA6D /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		4016629B1E0E24E000ACEA6D /* DaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysView.swift; sourceTree = "<group>"; };
-		402F58C91E10B97500791320 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
-		402F58CA1E10B97500791320 /* left-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow@2x.png"; sourceTree = "<group>"; };
-		402F58CB1E10B97500791320 /* left-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow@3x.png"; sourceTree = "<group>"; };
-		402F58CC1E10B97500791320 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
-		402F58CD1E10B97500791320 /* right-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow@2x.png"; sourceTree = "<group>"; };
-		402F58CE1E10B97500791320 /* right-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow@3x.png"; sourceTree = "<group>"; };
 		402F58D71E110AB300791320 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		40A6B27D1EF67B6000D10C3C /* DTCalendar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DTCalendar.bundle; sourceTree = "<group>"; };
 		40B4A07A1E0BC08E005051A0 /* DTCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DTCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B4A0841E0BC0BA005051A0 /* DTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCalendar.h; sourceTree = "<group>"; };
 		40B4A0851E0BC0BA005051A0 /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
@@ -98,12 +88,7 @@
 				401662971E0E249D00ACEA6D /* WeekdaysView.swift */,
 				4016629B1E0E24E000ACEA6D /* DaysView.swift */,
 				402F58D71E110AB300791320 /* DateExtension.swift */,
-				402F58C91E10B97500791320 /* left-arrow.png */,
-				402F58CA1E10B97500791320 /* left-arrow@2x.png */,
-				402F58CB1E10B97500791320 /* left-arrow@3x.png */,
-				402F58CC1E10B97500791320 /* right-arrow.png */,
-				402F58CD1E10B97500791320 /* right-arrow@2x.png */,
-				402F58CE1E10B97500791320 /* right-arrow@3x.png */,
+				40A6B27D1EF67B6000D10C3C /* DTCalendar.bundle */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -177,7 +162,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				TargetAttributes = {
 					40B4A0791E0BC08E005051A0 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -215,12 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				402F58D21E10B97500791320 /* right-arrow.png in Resources */,
-				402F58CF1E10B97500791320 /* left-arrow.png in Resources */,
-				402F58D31E10B97500791320 /* right-arrow@2x.png in Resources */,
-				402F58D11E10B97500791320 /* left-arrow@3x.png in Resources */,
-				402F58D41E10B97500791320 /* right-arrow@3x.png in Resources */,
-				402F58D01E10B97500791320 /* left-arrow@2x.png in Resources */,
+				40A6B27E1EF67B6000D10C3C /* DTCalendar.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +263,48 @@
 		40B4A0731E0BC069005051A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		40B4A0741E0BC069005051A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 			};
 			name = Release;
 		};
@@ -314,7 +330,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -379,7 +395,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

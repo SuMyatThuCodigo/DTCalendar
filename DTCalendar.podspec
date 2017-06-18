@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "DTCalendar"
-  spec.version = "1.0.3"
+  spec.version = "1.0.4"
   spec.summary = "Simple calendar control"
   spec.homepage = "https://github.com/danjiang/DTCalendar"
   spec.license = { type: 'MIT', file: 'LICENSE' }

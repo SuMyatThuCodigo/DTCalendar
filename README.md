@@ -13,39 +13,39 @@ Simple calendar control.
 
 Full controls.
 
-![Full controls](rect_fill.jpg)
+![Full controls](images/rect_fill.jpg)
 
 Hide day controls.
 
-![Hide day controls](hide_day_controls.jpg)
+![Hide day controls](images/hide_day_controls.jpg)
 
 Hide month controls.
 
-![Hide month controls](hide_month_controls.jpg)
+![Hide month controls](images/hide_month_controls.jpg)
 
 Hide both controls.
 
-![Hide both controls](hide_both_controls.jpg)
+![Hide both controls](images/hide_both_controls.jpg)
 
 Highlight is rect fill.
 
-![Rect fill](rect_fill.jpg)
+![Rect fill](images/rect_fill.jpg)
 
 Highlight is rect stroke.
 
-![Rect stroke](rect_stroke.jpg)
+![Rect stroke](images/rect_stroke.jpg)
 
 Highlight is oval fill.
 
-![Oval fill](oval_fill.jpg)
+![Oval fill](images/oval_fill.jpg)
 
 Highlight is oval stroke.
 
-![Oval stroke](oval_stroke.jpg)
+![Oval stroke](images/oval_stroke.jpg)
 
 Customize badge with emoji.
 
-![Emoji badge](emoji_badge.jpg)
+![Emoji badge](images/emoji_badge.jpg)
 
 ## Installation
 

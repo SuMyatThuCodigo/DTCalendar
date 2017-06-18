@@ -94,6 +94,13 @@ public class DTCalendar: UIView {
     case ovalStroke
   }
   
+  public static func imageWithName(_ name: String) -> UIImage? {
+    let bundle = Bundle(for: DTCalendar.self)
+    let url = bundle.url(forResource: "DTCalendar", withExtension: "bundle")!
+    let imageBundle = Bundle(url: url)
+    return UIImage(named: name, in: imageBundle, compatibleWith: nil)
+  }
+  
   public static var theme: DTCalendarTheme = DefaultTheme()
   public static var highlight: DTCalendar.Highlight = .rectFill
   public static var isMonthControlsHidden = false
