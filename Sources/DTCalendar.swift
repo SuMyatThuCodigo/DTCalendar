@@ -103,8 +103,9 @@ public class DTCalendar: UIView {
   
   public static var theme: DTCalendarTheme = DefaultTheme()
   public static var highlight: DTCalendar.Highlight = .rectFill
+  public static var isControlsOnTop = true
   public static var isMonthControlsHidden = false
-  public static var isDayControlsHidden = false
+  public static var isDayControlsHidden = false  
   
   public var dataSource: DTCalendarDataSource?
   public var delegate: DTCalendarDelegate? {
@@ -199,10 +200,16 @@ public class DTCalendar: UIView {
     let height = NSLayoutConstraint(item: controlsView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 46)
     let leading = NSLayoutConstraint(item: controlsView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
     let trailing = NSLayoutConstraint(item: controlsView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
-    let top = NSLayoutConstraint(item: controlsView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+    if DTCalendar.isControlsOnTop {
+      let top = NSLayoutConstraint(item: controlsView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+      addConstraint(top)
+    } else {
+      let bottom = NSLayoutConstraint(item: controlsView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+      addConstraint(bottom)
+    }
     
     controlsView.addConstraint(height)
-    addConstraints([leading, trailing, top])
+    addConstraints([leading, trailing])
   }
   
   private func layoutWeekdaysView() {
@@ -218,7 +225,7 @@ public class DTCalendar: UIView {
     addConstraints([leading, trailing])
     
     var top: NSLayoutConstraint
-    if !DTCalendar.isMonthControlsHidden || !DTCalendar.isDayControlsHidden {
+    if DTCalendar.isControlsOnTop && (!DTCalendar.isMonthControlsHidden || !DTCalendar.isDayControlsHidden) {
       top = NSLayoutConstraint(item: weekdaysView, attribute: .top, relatedBy: .equal, toItem: controlsView, attribute: .bottom, multiplier: 1, constant: 0)
     } else {
       top = NSLayoutConstraint(item: weekdaysView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
@@ -237,7 +244,13 @@ public class DTCalendar: UIView {
     let leading = NSLayoutConstraint(item: daysView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
     let trailing = NSLayoutConstraint(item: daysView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
     let top = NSLayoutConstraint(item: daysView, attribute: .top, relatedBy: .equal, toItem: weekdaysView, attribute: .bottom, multiplier: 1, constant: 0)
-    let bottom = NSLayoutConstraint(item: daysView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+    
+    var bottom: NSLayoutConstraint
+    if !DTCalendar.isControlsOnTop && (!DTCalendar.isMonthControlsHidden || !DTCalendar.isDayControlsHidden) {
+      bottom = NSLayoutConstraint(item: daysView, attribute: .bottom, relatedBy: .equal, toItem: controlsView, attribute: .top, multiplier: 1, constant: 0)
+    } else {
+      bottom = NSLayoutConstraint(item: daysView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+    }
     
     addConstraints([leading, trailing, top, bottom])
   }

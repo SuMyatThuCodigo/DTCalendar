@@ -13,7 +13,16 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var label: UILabel!
   
-  fileprivate let calendar = DTCalendar()
+  fileprivate lazy var calendar: DTCalendar = {
+    DTCalendar.isControlsOnTop = false
+    DTCalendar.isMonthControlsHidden = true
+    DTCalendar.isDayControlsHidden = true
+    
+    DTCalendar.highlight = .ovalStroke
+    DTCalendar.theme = MyTheme()
+
+    return DTCalendar()
+  }()
 
   fileprivate let formatter = DateFormatter()
   fileprivate var emojis = [Emoji]()
@@ -24,12 +33,6 @@ class ViewController: UIViewController {
     formatter.timeStyle = .none
     formatter.dateStyle = .full
     label.text = formatter.string(from: Date())
-
-//    DTCalendar.isMonthControlsHidden = true
-//    DTCalendar.isDayControlsHidden = true
-
-//    DTCalendar.highlight = .ovalStroke
-//    DTCalendar.theme = MyTheme()
     
     calendar.dataSource = self
     calendar.delegate = self

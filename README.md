@@ -145,6 +145,7 @@ extension ViewController: DTCalendarDelegate {
 #### Controls
 
 ```swift
+DTCalendar.isControlsOnTop = false // Put controls on bottom
 DTCalendar.isMonthControlsHidden = true // Hide month controls
 DTCalendar.isDayControlsHidden = true // Hide day controls
 

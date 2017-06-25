@@ -264,7 +264,7 @@ class HighlightView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = DTCalendar.theme.backgroundColor
+    backgroundColor = UIColor.clear
   }
   
   override func draw(_ rect: CGRect) {
