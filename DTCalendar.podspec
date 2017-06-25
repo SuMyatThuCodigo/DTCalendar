@@ -11,5 +11,5 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.source = { git: "https://github.com/danjiang/DTCalendar.git", tag: spec.version, submodules: true }
   spec.source_files = "Sources/**/*.{h,swift}"
-  spec.resources = "Sources/*.png"
+  spec.resources = "Sources/*.bundle"
 end
